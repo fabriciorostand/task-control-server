@@ -1,12 +1,15 @@
-import { fastify } from 'fastify'
-import { fastifyCors } from '@fastify/cors'
+import { fastifyCors } from '@fastify/cors';
+import { fastify } from 'fastify';
+import { env } from './env.js';
 
-const app = fastify()
+const app = fastify();
 
 app.register(fastifyCors, {
-    origin: 'http://localhost:5173',
-})
+  origin: 'http://localhost:5173',
+});
 
-app.listen({ port: 3333 }).then(() => {
-    console.log('HTTP server is running!')
-})
+app.get('/health', () => {
+  return 'OK';
+});
+
+app.listen({ port: env.PORT });
