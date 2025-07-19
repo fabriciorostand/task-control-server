@@ -1,0 +1,34 @@
+# Variables
+@baseURL = http://localhost:3333
+
+# Health check
+GET {{baseURL}}/health
+
+###
+
+# Get all tasks
+GET {{baseURL}}/tasks
+
+###
+
+# Get incomplete tasks
+GET {{baseURL}}/tasks?completed=false
+
+###
+
+# Get completed tasks
+GET {{baseURL}}/tasks?completed=true
+
+### 
+
+# Create Task
+POST {{baseURL}}/tasks
+Content-Type: application/json
+
+{
+    "name": "Pagar faculdade",
+    "description": "",
+    "deadline": "2025/07/23",
+    "priority": "high",
+    "completed": false
+}
