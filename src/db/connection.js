@@ -1,4 +1,6 @@
-import postgres from 'postgres';
+import { Sequelize } from 'sequelize';
 import { env } from '../env.js';
 
-export const sql = postgres(env.DATABASE_URL);
+export const db = new Sequelize(env.DATABASE_URL, {
+  dialect: 'postgres',
+});
