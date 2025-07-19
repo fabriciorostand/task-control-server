@@ -2,7 +2,7 @@
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('tasks', {
+    await queryInterface.createTable('Tasks', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -22,10 +22,10 @@ module.exports = {
         allowNull: true,
       },
       priority: {
-        type: Sequelize.ENUM('low', 'medium', 'high'),
+        type: Sequelize.ENUM('high', 'medium', 'low'),
         allowNull: false,
       },
-      status: {
+      completed: {
         type: Sequelize.BOOLEAN,
         allowNull: false,
       },
@@ -43,7 +43,7 @@ module.exports = {
   },
 
   async down(queryInterface) {
-    await queryInterface.dropTable('tasks');
+    await queryInterface.dropTable('Tasks');
     await queryInterface.sequelize.query(
       'DROP TYPE IF EXISTS "enum_tasks_priority";'
     );

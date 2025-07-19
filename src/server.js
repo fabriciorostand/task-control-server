@@ -1,6 +1,7 @@
 import { fastifyCors } from '@fastify/cors';
 import { fastify } from 'fastify';
 import { env } from './env.js';
+import { getTasksRoute } from './routes/get-tasks.js';
 
 const app = fastify();
 
@@ -11,5 +12,7 @@ app.register(fastifyCors, {
 app.get('/health', () => {
   return 'OK';
 });
+
+app.register(getTasksRoute);
 
 app.listen({ port: env.PORT });

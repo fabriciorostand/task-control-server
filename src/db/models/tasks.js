@@ -1,8 +1,8 @@
 import { DataTypes } from 'sequelize';
-import { db } from '../db/connection.js';
+import { db } from '../../db/connection.js';
 
-const Task = db.define(
-  'task',
+const Tasks = db.define(
+  'Tasks',
   {
     id: {
       type: DataTypes.INTEGER,
@@ -25,7 +25,7 @@ const Task = db.define(
       type: DataTypes.ENUM('low', 'medium', 'high'),
       allowNull: false,
     },
-    status: {
+    completed: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
     },
@@ -35,4 +35,4 @@ const Task = db.define(
   }
 );
 
-export default Task;
+export default Tasks;

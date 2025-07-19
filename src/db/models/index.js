@@ -1,5 +1,5 @@
-import Task from './task.js';
+import Tasks from './tasks.js';
 
 export const schema = {
-  Task,
+  Tasks,
 };
