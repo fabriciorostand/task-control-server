@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node --env-file .env src/server.js",
     "dev": "node --env-file .env --watch src/server.js",
-    "db:migrate": "npx dotenv -e .env -- sequelize-cli db:migrate --config src/db/config/config.json --migrations-path src/db/migrations"
+    "db:migrate": "npx dotenv -e .env -- sequelize-cli db:migrate --config src/db/config/config.json --migrations-path src/db/migrations",
+    "db:seed": "npx dotenv -e .env -- sequelize-cli db:seed:all --config src/db/config/config.json --seeders-path src/db/seeders"
   },
   "repository": {
     "type": "git",
